@@ -33,7 +33,8 @@ public class Student {
 
     //设置级联删除操作，这是多对对的级联删除，
     // 删除学生的同时会删除关联的老师，如果老师还有关联其他的学生，就会报错，除非老师类也要级联删除，这个删除是要慎重的
-    @ManyToMany(cascade = CascadeType.REMOVE)
+//    @ManyToMany(cascade = CascadeType.REMOVE)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name="stu_teacher",joinColumns = @JoinColumn(name = "stu_id"),inverseJoinColumns = @JoinColumn(name="teacher_id"))
     private Set<Teacher> teachers;
 

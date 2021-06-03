@@ -111,11 +111,32 @@ public class TestController {
         return teacherRepositoty.save(teacher);
     }
 
+    @PostMapping("/save_student_and_save_teacher")
+    public Student saveStudentAndSaveTeacher() {
+        Teacher teacher = new Teacher()
+                .setName("张老师3")
+                .setSubject("java")
+                .setAge(30);
+        Student student = new Student().setName("wang xue").setAge(20);
+        Set<Teacher> set = new HashSet<>();
+        set.add(teacher);
+        student.setTeachers(set);
+        studentRepository.save(student);
+
+        return student;
+    }
+
 
     //通过find 关键字进行名字查询
     @GetMapping("/find/{name}")
     public List<Student> findStudentsByName(@PathVariable("name") String name) {
         return studentRepository.findByName(name);
+    }
+
+    //通过find 关键字进行名字查询
+    @GetMapping("/findTeacher/{name}")
+    public List<Teacher> findTeachersByName(@PathVariable("name") String name) {
+        return teacherRepositoty.findByName(name);
     }
 
     //根据名字和年龄进行查询

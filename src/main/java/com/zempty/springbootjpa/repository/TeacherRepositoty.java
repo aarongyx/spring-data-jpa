@@ -1,5 +1,6 @@
 package com.zempty.springbootjpa.repository;
 
+import com.zempty.springbootjpa.entity.Student;
 import com.zempty.springbootjpa.entity.Teacher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,4 +26,8 @@ public interface TeacherRepositoty extends JpaRepository<Teacher,Integer>, JpaSp
     // 返回 TeacherProjection 接口类型的数据
     @Query("select t from Teacher t ")
     List<TeacherProjection> getTeacherNameAndAge();
+
+    // 查询数据库中指定名字的老师
+    List<Teacher> findByName(String name);
+
 }

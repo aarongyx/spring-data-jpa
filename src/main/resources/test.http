@@ -23,6 +23,12 @@ Content-Type: application/json
 {}
 
 ###
+POST http://localhost:8082/save_student_and_save_teacher
+Content-Type: application/json
+
+{}
+
+###
 PUT http://localhost:8082/update_student/6
 Content-Type: application/json
 
@@ -42,6 +48,12 @@ Content-Type: application/json
 
 ### find 关键字，查找名字是 zempty 的学生
 GET http://localhost:8082/find/zempty
+
+### find 关键字，查找名字是 wang xue 的学生
+GET http://localhost:8082/find/wang xue
+
+### find 关键字，查找名字是 wang xue 的老师
+GET http://localhost:8082/findTeacher/张老师3
 
 ### cout 关键字统计，统计名字是 zempty 学生的数量
 GET http://localhost:8082/count/zempty
