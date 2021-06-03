@@ -29,13 +29,27 @@ Content-Type: application/json
 {}
 
 ###
-PUT http://localhost:8082/update_student/6
+POST http://localhost:8082/save_student_classroom
+Content-Type: application/json
+
+{}
+
+
+###
+POST http://localhost:8082/save_student_classroom2
+Content-Type: application/json
+
+{}
+
+
+###
+PUT http://localhost:8082/update_student/3
 Content-Type: application/json
 
 {}
 
 ###
-DELETE http://localhost:8082/delete_student/5
+DELETE http://localhost:8082/delete_student/10
 Content-Type: application/json
 
 {}

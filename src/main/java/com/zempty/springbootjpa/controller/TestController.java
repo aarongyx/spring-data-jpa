@@ -52,6 +52,32 @@ public class TestController {
         return studentRepository.save(student);
     }
 
+    //级联保存的测试,保存CLASSROOM,也会级联保存学生
+    @PostMapping("/save_student_classroom")
+    public ClassRoom saveStudentClassroom() {
+        Student student = new Student()
+                .setAge(19)
+                .setName("zempty");
+
+        ClassRoom classRoom = new ClassRoom();
+        classRoom.setName("教室1");
+        student.setClassRoom(classRoom);
+        Set<Student> studentSet = new HashSet<>();
+        studentSet.add(student);
+        classRoom.setStudents(studentSet);
+        return classRoomRepository.save(classRoom);
+    }
+
+
+    //级联保存的测试,保存学生,不会级联保存CLASSROOM
+    @PostMapping("/save_student_classroom2")
+    public Student saveStudentClassroom2() {
+        Student student = new Student()
+                .setAge(19)
+                .setName("zempty");
+
+        return studentRepository.save(student);
+    }
 
 
 //    级联更新的测试
